@@ -1,0 +1,9 @@
+[general]
+name=Hydro AI Detector
+description=Hydrography AI detector plugin
+about=The plugin integrates an MRCNN trained to detect hydrography on remote sensing imagery. Supported by Code-AI program (https://fasie.ru/press/fund/kod-ai/).
+version=1.0
+qgisMinimumVersion=3.0
+author=Engenii Dremov
+email=evgeni-dremov@yandex.ru
+repository=URL to the code repository

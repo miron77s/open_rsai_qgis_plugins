@@ -1,0 +1,9 @@
+[general]
+name=Buildings AI Detector
+description=Buildings AI detector plugin
+about=The plugin integrates an AI pipelni trained to detect and reconstruct buildings on remote sensing imagery. Supported by Code-AI program (https://fasie.ru/press/fund/kod-ai/).
+version=1.0
+qgisMinimumVersion=3.0
+author=Sergei Miroshnichenko
+email=oldguy7@rambler.ru
+repository=URL to the code repository
