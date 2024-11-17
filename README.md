@@ -4,13 +4,23 @@
 
 OpenRSAI-QGIS integrates the [OpenRSAI Algorithms](https://github.com/miron77s/open_rsai_algos) into QGIS environment to automate buildings, hydrography and greenery layers.
 
+## Hardware Requirements
+
+OpenRSAI-Markup hardware requirements come up from [OpenRSAI-Core](https://github.com/miron77s/open_rsai#hardware) and [OpenRSAI-Algos](https://github.com/miron77s/open_rsai_algos#hardware) utilities requirements and are the following:
+
+
+ - 16 Gb RAM.
+ - NVIDIA GeForce 4070 (minimum 12Gb GPU memory).
+ - 6Gb of free disk space.
+
+
 ## Installation Guide
 
-Please follow these steps to install and activate the QGIS plugins from this repository on Ubuntu.
+Please follow these steps to install and activate the QGIS plugins from this repository on Ubuntu 22.04.
 
 ### 1. OpenRSAI-Algo Setup
 
-Follow the OpenRSAI-Core [requirements](https://github.com/miron77s/open_rsai#requirements) and [build guide](https://github.com/miron77s/open_rsai#compile-and-installation-using-cmake), OpenRSAI-Algo [ installation guide](https://github.com/miron77s/open_rsai_algos?tab=readme-ov-file#installation) to get automatic toolchains.
+Follow the OpenRSAI-Core [requirements](https://github.com/miron77s/open_rsai#requirements) and [build guide](https://github.com/miron77s/open_rsai#compile-and-installation-using-cmake), OpenRSAI-Algo [installation guide](https://github.com/miron77s/open_rsai_algos?tab=readme-ov-file#installation) to get automatic toolchains.
 
 ### 2. QGIS Setup
 
