@@ -4,6 +4,10 @@
 
 OpenRSAI-QGIS integrates the [OpenRSAI Algorithms](https://github.com/miron77s/open_rsai_algos) into QGIS environment to automate buildings, hydrography and greenery layers.
 
+## Tutorial
+
+The OpenRSAI-QGIS is the [Open Remote Sensing AI Library Core](https://github.com/miron77s/open_rsai) library extension that can be installed and tested in complex according the [tutorial](https://github.com/miron77s/open_rsai/blob/main/tutorial/TUTORIAL.md). 
+
 ## Hardware Requirements
 
 OpenRSAI-Markup hardware requirements come up from [OpenRSAI-Core](https://github.com/miron77s/open_rsai#hardware) and [OpenRSAI-Algos](https://github.com/miron77s/open_rsai_algos#hardware) utilities requirements and are the following:
