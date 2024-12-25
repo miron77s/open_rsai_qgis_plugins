@@ -1,5 +1,5 @@
 import os
-from os import popen
+import subprocess
 from PyQt5 import QtCore, QtGui
 from PyQt5.QtWidgets import QDialog, QFileDialog, QVBoxLayout, QLabel, QLineEdit, QPushButton, QHBoxLayout, QMessageBox
 from qgis.core import QgsRasterLayer, QgsVectorLayer, QgsProject
@@ -237,12 +237,41 @@ class CreateWorkAreaDialog(QDialog):
 
     def run_console_command(self):
         not_empty_images_paths = [path for path in self.images_paths if path]
-        console_command = f"conda activate open_rsai_detectors\n python {self.settings.value('python_script')} {self.settings.value('result_folder')} {self.settings.value('weights')} {self.work_area.work_area_path} {' '.join(not_empty_images_paths)}\n conda deactivate"
-        print("console_command", console_command)
-        last_command_result = popen(console_command)
-        last_command_result_str = last_command_result.read()
-        print(last_command_result_str)
-        last_command_result.close()
+        work_area_folder = os.path.join (self.settings.value('result_folder'), self.work_area.name)
+
+        # Define the command to activate the Conda environment and run the script
+        conda_activate_command = 'source ~/anaconda3/bin/activate'
+        activate_env_command = 'conda activate open_rsai_detectors'
+        deactivate_env_command = 'conda deactivate'
+        script_path = f"{self.settings.value('python_script')}"
+        script_args = [
+            f"{work_area_folder}",
+            f"{self.settings.value('weights')}",
+            f"{self.work_area.work_area_path}",
+            f"{' '.join(not_empty_images_paths)}"
+        ]
+
+        # Build the command to run
+        command = f'{conda_activate_command} && {activate_env_command} && python {" ".join([script_path] + script_args)} && {deactivate_env_command}'
+
+        # Use subprocess to run the command
+        process = subprocess.Popen(
+            command,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            shell=True,
+            executable='/bin/bash'
+        )
+
+        # Communicate with the subprocess to get the output and errors
+        stdout, stderr = process.communicate()
+
+        if process.returncode != 0:
+            print(f'Error: {stderr.decode().strip()}')
+        else:
+            print(f'Output: {stdout.decode().strip()}')
+
+        print("console_command", command)
 
     def load_shapefile(self):
         result_folder = os.path.join(self.settings.value('result_folder'), self.work_area.name)
