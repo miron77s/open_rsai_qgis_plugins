@@ -1,4 +1,5 @@
 import os
+from os import popen
 from PyQt5 import QtCore, QtGui
 from PyQt5.QtWidgets import QDialog, QFileDialog, QVBoxLayout, QLabel, QLineEdit, QPushButton, QHBoxLayout, QMessageBox
 from qgis.core import QgsRasterLayer, QgsVectorLayer, QgsProject
