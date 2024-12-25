@@ -238,6 +238,10 @@ class CreateWorkAreaDialog(QDialog):
         not_empty_images_paths = [path for path in self.images_paths if path]
         console_command = f"conda activate open_rsai_detectors/n python {self.settings.value('python_script')} {self.settings.value('result_folder')} {self.settings.value('weights')} {self.work_area.work_area_path} {' '.join(not_empty_images_paths)}/n conda deactivate"
         print("console_command", console_command)
+        last_command_result = popen(console_command)
+        last_command_result_str = last_command_result.read()
+        print(last_command_result_str)
+        last_command_result.close()
 
     def load_shapefile(self):
         result_folder = os.path.join(self.settings.value('result_folder'), self.work_area.name)
